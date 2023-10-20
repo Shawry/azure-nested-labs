@@ -1,0 +1,15 @@
+TOPIC
+    about_Nve
+
+SHORT DESCRIPTION
+    Nve contains functions related to the Nested Virtualisation Environment (NVE) hosted in Azure
+
+LONG DESCRIPTION
+    Nve contains functions related to the Nested Virtualisation Environment (NVE) hosted in Azure. 
+    This module is designed to be run from an automation account utilising the Azure Automation runboook system.
+
+EXAMPLES
+    Import-Module Nve
+
+KEYWORDS
+    Nve Nested Virtualisation Environment

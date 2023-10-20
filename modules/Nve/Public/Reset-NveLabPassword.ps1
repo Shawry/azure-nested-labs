@@ -9,7 +9,7 @@
   The account password will be returned in plain text.
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
   IMPORTANT: This function will only run if Confirm-NveBudget (called at the start) does not throw a terminating error
   WARNING: The account password will be returned in plain text.
@@ -19,7 +19,7 @@
 
 .EXAMPLE
   $Params = @{
-    OrgCode     = 'dni'
+    OrgCode     = 'nve'
     LabName     = 'my_lab'
     Username    = 'labadmin'
     BastionName = 'bas-nve-prod-aue-001'
@@ -27,7 +27,7 @@
   }
   Reset-NveLabPassword @Params
 
-  The 'labadmin' account will be reset on the 'my_lab' lab under the 'dni' organisation
+  The 'labadmin' account will be reset on the 'my_lab' lab under the 'nve' organisation
 #>
 
 

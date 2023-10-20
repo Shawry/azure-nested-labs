@@ -7,7 +7,7 @@
   If the Budget limit is exceeded, this function will not work.
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
   IMPORTANT: This function will only run if Confirm-NveBudget (called at the start) does not throw a terminating error
 
@@ -15,7 +15,7 @@
   Module repo located at: TBA
 
 .EXAMPLE
-  Start-NveLab -LabName 'my_lab' -OrgCode 'dni' -AllocatedHours 4
+  Start-NveLab -LabName 'my_lab' -OrgCode 'nve' -AllocatedHours 4
 #>
 
 function Start-NveLab {

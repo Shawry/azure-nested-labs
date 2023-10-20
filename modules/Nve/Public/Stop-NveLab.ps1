@@ -7,13 +7,13 @@
   This function can be run after the Budget limit is exceeded.
   
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
 .LINK
   Module repo located at: TBA
 
 .EXAMPLE 
-  Stop-NveLab -LabName 'my_lab' -OrgCode 'dni'
+  Stop-NveLab -LabName 'my_lab' -OrgCode 'nve'
 #>
 
 function Stop-NveLab {

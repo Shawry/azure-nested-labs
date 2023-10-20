@@ -25,9 +25,9 @@ Param(
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
-$OrgCode            = 'dni' # Defence 'n' Intel
+$OrgCode            = 'nve'
 $AllocatedHours     = 4
-$BudgetName         = 'budget-monthly-defence-non-prod'
+$BudgetName         = 'budget-monthly-non-prod'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"
@@ -38,7 +38,7 @@ try {
   $AzureContext = (Connect-AzAccount -Identity).context
   $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
-  Import-Module 'C:\usr\src\PSModules\oobeNve\oobeNve\oobeNve.psd1'
+  Import-Module 'C:\usr\src\PSModules\Nve\Nve\Nve.psd1'
 
   Grant-NveLabTime -LabName $LabName -OrgCode $OrgCode -AllocatedHours $AllocatedHours -BudgetName $BudgetName
 

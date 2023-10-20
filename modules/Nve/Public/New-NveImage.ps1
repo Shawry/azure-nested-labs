@@ -9,7 +9,7 @@
   OrgCode parameter provided, as this Publisher name is considered reserved.
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
   IMPORTANT: After the capture has completed, the lab VM and all of its associated resources are deleted.
   IMPORTANT: This function will only run if Confirm-NveBudget (called at the start) does not throw a terminating error
@@ -20,7 +20,7 @@
 .EXAMPLE
   $Params = @{
     LabName     = 'my_lab'
-    OrgCode     = 'dni'
+    OrgCode     = 'nve'
     Publisher   = 'deployables'
     Offer       = 'fleet'
     SKU         = 'secret_server'

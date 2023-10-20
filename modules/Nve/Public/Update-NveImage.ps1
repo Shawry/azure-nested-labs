@@ -11,7 +11,7 @@
   Each Image Definition will keep only two Image Versions, all older Image Versions are removed.
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
   IMPORTANT: After the capture has completed, the lab VM and all of its associated resources are deleted.
   IMPORTANT: This function will only run if Confirm-NveBudget (called at the start) does not throw a terminating error.
@@ -22,9 +22,9 @@
 .EXAMPLE
   $Params = @{
     LabName       = 'my_lab'
-    OrgCode       = 'dni'
-    BudgetName    = 'budget-monthly-defence-non-prod'
-    GalleryName   = 'Defence_and_Intel_Image_Gallery'
+    OrgCode       = 'nve'
+    BudgetName    = 'budget-monthly-non-prod'
+    GalleryName   = 'Image_Gallery'
     GalleryRgName = 'rg-nve-prod-aue-001'
   }
   Update-NveImage @Params

@@ -19,10 +19,7 @@
     Set-NveAutoShutdown -LabName 'ryans_lab' -AllocatedHours 4
 
 .NOTES
-    Author: Ryan Shaw (ryan.shaw@oobe.com.au) | Company: oobe, a Fujitsu company
-
-.LINK
-    Azure DevOps repo: https://dev.azure.com/oobe-lab/oobeLab/_git/NVE
+    Author: Ryan Shaw
 #>
 function Set-NveAutoShutdown {
   [CmdletBinding()]

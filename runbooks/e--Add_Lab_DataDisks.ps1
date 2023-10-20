@@ -56,9 +56,9 @@ Param(
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
-$OrgCode  = 'dni' # Defence 'n' Intel
+$OrgCode  = 'nve'
 $DiskSize = 128 # Must be one of: 4,8,16,32,64,128,256,512,1024
-$BudgetName = 'budget-monthly-defence-non-prod'
+$BudgetName = 'budget-monthly-non-prod'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"
@@ -69,7 +69,7 @@ try {
   $AzureContext = (Connect-AzAccount -Identity).context
   $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
-  Import-Module 'C:\usr\src\PSModules\oobeNve\oobeNve\oobeNve.psd1'
+  Import-Module 'C:\usr\src\PSModules\Nve\Nve\Nve.psd1'
 
   Add-NveDataDisk -LabName $LabName -OrgCode $OrgCode -Quantity $Quantity -DiskSize $DiskSize -BudgetName $BudgetName
 

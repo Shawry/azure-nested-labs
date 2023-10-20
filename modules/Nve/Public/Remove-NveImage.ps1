@@ -10,7 +10,7 @@
   OrgCode parameter provided, as this Publisher name is considered reserved.
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
   IMPORTANT: Once the Image Versions are deleted they cannot be recovered.
 
@@ -22,7 +22,7 @@
     Publisher     = 'deployables'
     Offer         = 'fleet'
     SKU           = 'secret_server'
-    OrgCode       = 'dni'
+    OrgCode       = 'nve'
     GalleryName   = $Gallery.Name
     GalleryRgName = $Gallery.ResourceGroupName
   }

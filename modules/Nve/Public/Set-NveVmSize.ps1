@@ -8,7 +8,7 @@
   The caller must ensure the current lab configuration is compatible with the new VM Size SKU
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
   IMPORTANT: This function will only run if Confirm-NveBudget (called at the start) does not throw a terminating error
 
@@ -16,9 +16,9 @@
   Module repo located at: TBA
 
 .EXAMPLE
-  Set-NveVmSize -LabName 'my_lab' -OrgCode 'dni' -VmSize 'Standard_E32s_v5'
+  Set-NveVmSize -LabName 'my_lab' -OrgCode 'nve' -VmSize 'Standard_E32s_v5'
 
-  The 'my_lab' VM under the 'dni' organisation will have its VM Size changed to the 'Standard_E32s_v5' SKU.
+  The 'my_lab' VM under the 'nve' organisation will have its VM Size changed to the 'Standard_E32s_v5' SKU.
 #>
 
 

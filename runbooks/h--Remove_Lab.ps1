@@ -27,7 +27,7 @@ Param(
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
-$OrgCode        = 'dni' # Defence 'n' Intel
+$OrgCode        = 'nve'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"
@@ -38,7 +38,7 @@ try {
   $AzureContext = (Connect-AzAccount -Identity).context
   $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
-  Import-Module 'C:\usr\src\PSModules\oobeNve\oobeNve\oobeNve.psd1'
+  Import-Module 'C:\usr\src\PSModules\Nve\Nve\Nve.psd1'
 
   Remove-NveLab -LabName $LabName -OrgCode $OrgCode
 

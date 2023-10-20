@@ -20,10 +20,7 @@
   This will push the final ErrorDetails property to the Azure portal's output view correctly.
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
-
-.LINK
-  Module repo located at: TBA
+  Author: Ryan Shaw
 
 .EXAMPLE
   try {

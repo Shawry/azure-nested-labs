@@ -8,15 +8,15 @@
   previously setup.
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
 .LINK
   Module repo located at: TBA
 
 .EXAMPLE
-  Get-NveResources -OrgCode 'dni' -GalleryRgName $Gallery.ResourceGroupName -GalleryName $Gallery.Name
+  Get-NveResources -OrgCode 'nve' -GalleryRgName $Gallery.ResourceGroupName -GalleryName $Gallery.Name
 
-  All VMs under the dni organisation code will be listed. All images from within the provided gallery will be listed.
+  All VMs under the nve organisation code will be listed. All images from within the provided gallery will be listed.
 #>
 
 function Get-NveResources {

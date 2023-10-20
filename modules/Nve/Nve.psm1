@@ -1,13 +1,13 @@
 <#
 .SYNOPSIS
-	The oobeNve Module is a collection of Functions related to the oobe Nested Virtualisation Environment
+	The Nve Module is a collection of Functions related to the Nested Virtualisation Environment
 
 .DESCRIPTION
-	The oobeNve Module files are broken up into a number of folders:
+	The Nve Module files are broken up into a number of folders:
 
-└───oobeNve
-	|		oobeNve.psd1
-	|		oobeNve.psm1
+└───Nve
+	|		Nve.psd1
+	|		Nve.psm1
 	|
 	└───Private		<-- Helper functions and other code not advertised by module
 	|
@@ -19,13 +19,13 @@
 		
 		To view all Functions related to this module, type:
 
-				Get-Command -Module oobeNve
+				Get-Command -Module Nve
 
 		For further detail, type:
 				
 				Get-Help <function-name> -Full
 
-		Feedback is always welcome, please contact your local oobe personnel if you have any requests/bugs/fixes.
+		Feedback is always welcome, please contact your local admin personnel if you have any requests/bugs/fixes.
 #>
 
 $Private = @( Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -Recurse -ErrorAction SilentlyContinue )

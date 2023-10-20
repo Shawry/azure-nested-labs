@@ -30,13 +30,6 @@ $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -Defa
 try {
   Write-Output ("`rScript started at: '{0}'`r$hr`r" -f (Get-Date -f 'o'))
   $ErrorActionPreference = "stop"
-
-  # Gather budget details
-  # if ($WebhookData) {
-  #   # Get the data object from WebhookData
-  #   $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
-  #   $Data = $WebhookBody.Data
-  # }
   
   $FailedVMs = New-Object System.Collections.Generic.List[pscustomobject]
  

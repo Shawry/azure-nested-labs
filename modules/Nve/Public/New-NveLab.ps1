@@ -127,13 +127,13 @@
   $StorageContext = New-AzStorageContext -StorageAccountName 'stnveproddata001' -UseConnectedAccount
 
   $Params = @{
-      OrgCode             = 'dni'
+      OrgCode             = 'nve'
       LabName             = 'my_lab'     
       Username            = 'labadmin'
       VmSize              = 'Standard_D8s_v5'
       Location            = 'Australia East'
-      ImageName           = 'dni-baseline-standard'
-      GalleryName         = 'Defence_and_Intel_Image_Gallery'
+      ImageName           = 'nve-baseline-standard'
+      GalleryName         = 'Image_Gallery'
       GalleryRgName       = 'rg-nve-prod-aue-001'
       SubnetName          = 'snet-nve-prod-aue-001'
       VnetName            = 'vnet-nve-prod-aue-001'
@@ -143,7 +143,7 @@
       StorageContext      = $StorageContext
       TemplatesContainer  = 'templates'
       AllocatedHours      = 4
-      BudgetName          = 'budget-monthly-defence-non-prod'
+      BudgetName          = 'budget-monthly-non-prod'
       BastionName         = 'bas-nve-prod-aue-001'
       BastionRg           = 'rg-net-prod-aue-001'
       AccessGroupId       = 'd52bac22-c43d-468f-9b74-07ed2d3f8f48'
@@ -151,12 +151,9 @@
   New-NveLab @Params
   
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
   IMPORTANT: This function will only run if Confirm-NveBudget (called at the start) does not throw a terminating error
-
-.LINK
-  Azure DevOps repo: https://dev.azure.com/oobe-lab/oobeLab/_git/NVE
 #>
 function New-NveLab {
 

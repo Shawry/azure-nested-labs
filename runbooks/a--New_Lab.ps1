@@ -12,7 +12,7 @@
 #                   underscores. Hyphens will be converted to underscores.
 #
 #   SOURCEIMAGE   - This is the Image that your Lab will be provisioned from. 
-#                   The SOURCEIMAGE format looks like this: dni-baseline-standard
+#                   The SOURCEIMAGE format looks like this: nve-baseline-standard
 #             
 #                   If you don't have a SOURCEIMAGE just leave it blank and it will default
 #                   to the baseline image.      
@@ -57,7 +57,7 @@
 How to use the Labs:
 
   Step 1.
-    Provision a new Lab from the baseline Image. This is the default: dni-baseline-standard
+    Provision a new Lab from the baseline Image. This is the default: nve-baseline-standard
 
   Step 2.
     Add the things you want to your Lab. You can remove the VMs that already exist if you 
@@ -121,7 +121,7 @@ param (
 
   [Parameter()]
   [string]
-  $SourceImage = 'dni-baseline-standard',
+  $SourceImage = 'nve-baseline-standard',
 
   [Parameter()]
   [string]
@@ -140,11 +140,11 @@ $NicNsgRg           = 'rg-net-prod-aue-001'
 $StorageAccountName = 'stnvedevdata001'
 $TemplatesContainer = 'templates'
 $GalleryRgName      = 'rg-nve-prod-aue-001'
-$GalleryName        = 'Defence_and_Intel_Image_Gallery'
+$GalleryName        = 'Image_Gallery'
 $Username           = 'labadmin'
-$OrgCode            = 'dni' # Defence 'n' Intel
+$OrgCode            = 'nve'
 $AllocatedHours     = 4
-$BudgetName         = 'budget-monthly-defence-non-prod'
+$BudgetName         = 'budget-monthly-non-prod'
 $BastionName        = 'bas-nve-prod-aue-001'
 $BastionRg          = 'rg-net-prod-aue-001'
 $AccessGroupId      = 'd52bac22-c43d-468f-9b74-07ed2d3f8f48'
@@ -159,7 +159,7 @@ try {
   $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
   $StorageContext = New-AzStorageContext -StorageAccountName $StorageAccountName -UseConnectedAccount
 
-  Import-Module 'C:\usr\src\PSModules\oobeNve\oobeNve\oobeNve.psd1'
+  Import-Module 'C:\usr\src\PSModules\Nve\Nve\Nve.psd1'
 
   $Params = @{
       OrgCode             = $OrgCode

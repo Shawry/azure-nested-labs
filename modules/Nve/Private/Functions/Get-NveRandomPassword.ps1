@@ -23,13 +23,10 @@
     Get-NveRandomPassword
 
 .NOTES
-    Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+    Author: Ryan Shaw
 
     Do not use the Write-Output Cmdlet within this function to output Runbook comments. This function's output is 
     intended to be stored in a $Passwords array within the caller's scope.
-
-.LINK
-    Module repo located at: TBA
 #>
 function Get-NveRandomPassword {
 

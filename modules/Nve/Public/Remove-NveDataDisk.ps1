@@ -8,15 +8,14 @@
 
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
-
+  Author: Ryan Shaw
   IMPORTANT: The disks are deleted and cannot be recovered.
 
 .LINK
   Module repo located at: TBA
 
 .EXAMPLE
-  Remove-NveDataDisk -LabName 'my_lab' -OrgCode 'dni' -LUNs 1,2,5,
+  Remove-NveDataDisk -LabName 'my_lab' -OrgCode 'nve' -LUNs 1,2,5,
 
   The disks attached to LUNs 1, 2 and 5 will be detached from the VM and deleted.
 #>

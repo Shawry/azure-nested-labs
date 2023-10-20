@@ -8,7 +8,7 @@
   The Lab will no longer exist and cannot be recovered.
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
   IMPORTANT: The lab will nor be recoverable after this function has completed
 
@@ -17,9 +17,9 @@
 
 .EXAMPLE
 
-  Remove-NveLab -LabName 'my_lab' -OrgCode 'dni'
+  Remove-NveLab -LabName 'my_lab' -OrgCode 'nve'
 
-  This will remove the 'my_lab' lab that belongs to the 'dni' organisation.
+  This will remove the 'my_lab' lab that belongs to the 'nve' organisation.
 #>
 function Remove-NveLab {
 

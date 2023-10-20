@@ -10,7 +10,7 @@
   due to the limitation of the Azure Compute Gallery.
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
   IMPORTANT: This function will only run if Confirm-NveBudget (called at the start) does not throw a terminating error
 
@@ -18,9 +18,9 @@
   Module repo located at: TBA
 
 .EXAMPLE
-  Add-NveDataDisk -LabName 'my_lab' -OrgCode 'dni' -Quantity 3 -DiskSize 128
+  Add-NveDataDisk -LabName 'my_lab' -OrgCode 'nve' -Quantity 3 -DiskSize 128
 
-  This will find the lab named 'my_lab' under the organisation 'dni' then create and attach 3 x 128GB data disks to it.
+  This will find the lab named 'my_lab' under the organisation 'nve' then create and attach 3 x 128GB data disks to it.
 #>
 
 function Add-NveDataDisk {

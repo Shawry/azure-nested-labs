@@ -54,8 +54,8 @@ class NveLab {
 
     $Id = $VM.StorageProfile.ImageReference.id
     # The leaf of the ImageReferenceId will be different if the version number was chosen explicitly on VM creation
-    # ie:   /subscriptions/xxx-xxx-xxx/resourceGroups/LAB-RG/providers/Microsoft.Compute/galleries/lab_shared_image_gallery/images/vte-die-standard
-    # vs    /subscriptions/xxx-xxx-xxx/resourceGroups/LAB-RG/providers/Microsoft.Compute/galleries/lab_shared_image_gallery/images/vte-die-standard/versions/1.2.0
+    # ie:   /subscriptions/xxx-xxx-xxx/resourceGroups/LAB-RG/providers/Microsoft.Compute/galleries/lab_shared_image_gallery/images/nve-xxx-standard
+    # vs    /subscriptions/xxx-xxx-xxx/resourceGroups/LAB-RG/providers/Microsoft.Compute/galleries/lab_shared_image_gallery/images/nve-xxx-standard/versions/1.2.0
     $this.ImageReferenceId = ( ($Id.split('/')[-1]) -match '^\d*\.\d*\.\d*$') ? $Id : ("{0}/versions/{1}" -f $Id, $VM.Tags.Version)
 
     try {

@@ -12,7 +12,7 @@
   This function calls a helper function 'Set-NveAutoShutdown' to set the auto shutdown schedule.
 
 .NOTES
-  Author: Ryan Shaw (ryan.shaw@oobe.com.au) | oobe, a Fujitsu company
+  Author: Ryan Shaw
 
   IMPORTANT: This function will only run if Confirm-NveBudget (called at the start) does not throw a terminating error
   
@@ -20,7 +20,7 @@
   Module repo located at: TBA
 
 .EXAMPLE
-  Grant-NveLabTime -LabName 'my_lab' -OrgCode 'dni' -AllocatedHours 4 -BudgetName $BudgetName
+  Grant-NveLabTime -LabName 'my_lab' -OrgCode 'nve' -AllocatedHours 4 -BudgetName $BudgetName
 
   The 'my_lab' VM auto shutdown schedule will be set to shutdown 4 hrs from now, but only providing the
   budget has not exceeded its limit.

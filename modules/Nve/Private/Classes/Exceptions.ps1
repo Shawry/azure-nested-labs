@@ -23,20 +23,6 @@ class NveLabNameInUseException : System.Exception {
   }
 }
 
-# class NvePreviousVersionDoesNotExistException: System.Exception {
-#   [string]$ImageName
-
-#   NvePreviousVersionDoesNotExistException([string] $ImageName) :
-#     base("Invalid parameter:'PreviousVersion'. The Image:'$ImageName' only has one version, which is the latest. Do NOT set the PREVIOUSVERSION parameter to use this image.") {
-#       $this.ImageName = $ImageName
-#   }
-
-#   Info() {
-#     Write-Host "Invalid parameter:'PreviousVersion'. The Image:'$($this.ImageName)' only has one version, which is the latest."
-#     Write-Host "Do NOT set the PREVIOUSVERSION parameter to use this image."
-#   }
-# }
-
 class NveVmSizeNotSupportedException: System.Exception {
   [string]$VmSize
   [array]$SupportedSizes

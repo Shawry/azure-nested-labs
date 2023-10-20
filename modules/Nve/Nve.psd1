@@ -9,7 +9,7 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-RootModule = 'oobeNve.psm1'
+RootModule = 'Nve.psm1'
 
 # Version number of this module.
 ModuleVersion = '1.0.0'
@@ -24,7 +24,7 @@ GUID = 'ac7bc28a-694c-487c-a41d-29d0f818c3f0'
 Author = 'Ryan.Shaw'
 
 # Company or vendor of this module
-CompanyName = 'oobe, a Fujitsu company'
+# CompanyName = ''
 
 # Copyright statement for this module
 Copyright = '(c) Ryan.Shaw. All rights reserved.'

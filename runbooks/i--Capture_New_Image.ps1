@@ -10,7 +10,7 @@
 #   PUBLISHER     - Enter the Publisher name here.
 #                   Image Definition name eg: <Publisher>-<Offer>-<Sku>
 #
-#                   The Publisher name 'dni' is a reserved name used for the baseline Images.
+#                   The Publisher name 'nve' is a reserved name used for the baseline Images.
 #
 #   OFFER         - Enter the Offer name here.
 #                   Image Definition name eg: <Publisher>-<Offer>-<Sku>
@@ -53,10 +53,10 @@ Param(
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
-$OrgCode        = 'dni' # Defence 'n' Intel
+$OrgCode        = 'nve'
 $GalleryRgName  = 'rg-nve-prod-aue-001'
-$GalleryName    = 'Defence_and_Intel_Image_Gallery'
-$BudgetName     = 'budget-monthly-defence-non-prod'
+$GalleryName    = 'Image_Gallery'
+$BudgetName     = 'budget-monthly-non-prod'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"
@@ -67,7 +67,7 @@ try {
   $AzureContext = (Connect-AzAccount -Identity).context
   $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
-  Import-Module 'C:\usr\src\PSModules\oobeNve\oobeNve\oobeNve.psd1'
+  Import-Module 'C:\usr\src\PSModules\Nve\Nve\Nve.psd1'
 
   $Params = @{
     LabName     = $LabName
