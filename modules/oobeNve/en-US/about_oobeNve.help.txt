@@ -1,0 +1,18 @@
+TOPIC
+    about_oobeNve
+
+SHORT DESCRIPTION
+    oobeNve contains functions related to the oobe Nested Virtualisation Environment (NVE) hosted in Azure
+
+LONG DESCRIPTION
+    oobeNve contains functions related to the oobe Nested Virtualisation Environment (NVE) hosted in Azure. 
+    This module is designed to be run from an automation account utilising the Azure Automation runboook system.
+
+EXAMPLES
+    Import-Module oobeNve
+
+KEYWORDS
+    Nve Nested Virtualisation Environment
+ 
+SEE ALSO
+    https://dev.azure.com/oobe-lab/oobeLab/_git/NVE

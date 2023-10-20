@@ -1,0 +1,366 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.20.4.51522",
+      "templateHash": "12909154465051183290"
+    }
+  },
+  "parameters": {
+    "labName": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 15
+    },
+    "org": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "loc": {
+      "type": "string"
+    },
+    "vmSize": {
+      "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    },
+    "adminUsername": {
+      "type": "string"
+    },
+    "imageReferenceId": {
+      "type": "string"
+    },
+    "shutdownTime": {
+      "type": "string"
+    },
+    "timeZoneId": {
+      "type": "string"
+    },
+    "subnetName": {
+      "type": "string"
+    },
+    "vnetName": {
+      "type": "string"
+    },
+    "vnetRg": {
+      "type": "string"
+    },
+    "nicNsgName": {
+      "type": "string"
+    },
+    "nicNsgRg": {
+      "type": "string"
+    },
+    "imageName": {
+      "type": "string"
+    },
+    "imageVersion": {
+      "type": "string"
+    },
+    "roleAssignmentName": {
+      "type": "string",
+      "defaultValue": "[newGuid()]"
+    },
+    "accessGroupId": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2021-04-01",
+      "name": "[format('nve-{0}-{1}-rg', parameters('org'), parameters('labName'))]",
+      "location": "[parameters('location')]",
+      "tags": {
+        "Lab": "[parameters('labName')]",
+        "Org": "[parameters('org')]"
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}-{1}-{2}-vm-deployment', parameters('org'), parameters('labName'), parameters('loc'))]",
+      "resourceGroup": "[format('nve-{0}-{1}-rg', parameters('org'), parameters('labName'))]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "labName": {
+            "value": "[parameters('labName')]"
+          },
+          "org": {
+            "value": "[parameters('org')]"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "vmSize": {
+            "value": "[parameters('vmSize')]"
+          },
+          "timeZoneId": {
+            "value": "[parameters('timeZoneId')]"
+          },
+          "adminUsername": {
+            "value": "[parameters('adminUsername')]"
+          },
+          "adminPassword": {
+            "value": "[parameters('adminPassword')]"
+          },
+          "imageReferenceId": {
+            "value": "[parameters('imageReferenceId')]"
+          },
+          "nicNsgName": {
+            "value": "[parameters('nicNsgName')]"
+          },
+          "nicNsgRg": {
+            "value": "[parameters('nicNsgRg')]"
+          },
+          "vnetName": {
+            "value": "[parameters('vnetName')]"
+          },
+          "vnetRg": {
+            "value": "[parameters('vnetRg')]"
+          },
+          "subnetName": {
+            "value": "[parameters('subnetName')]"
+          },
+          "shutdownTime": {
+            "value": "[parameters('shutdownTime')]"
+          },
+          "imageVersion": {
+            "value": "[parameters('imageVersion')]"
+          },
+          "imageName": {
+            "value": "[parameters('imageName')]"
+          },
+          "roleAssignmentName": {
+            "value": "[parameters('roleAssignmentName')]"
+          },
+          "accessGroupId": {
+            "value": "[parameters('accessGroupId')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.20.4.51522",
+              "templateHash": "12964002814947629449"
+            }
+          },
+          "parameters": {
+            "labName": {
+              "type": "string"
+            },
+            "org": {
+              "type": "string"
+            },
+            "adminPassword": {
+              "type": "securestring",
+              "minLength": 17
+            },
+            "adminUsername": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 15
+            },
+            "location": {
+              "type": "string"
+            },
+            "vmSize": {
+              "type": "string"
+            },
+            "imageReferenceId": {
+              "type": "string"
+            },
+            "vnetName": {
+              "type": "string"
+            },
+            "vnetRg": {
+              "type": "string"
+            },
+            "nicNsgName": {
+              "type": "string"
+            },
+            "nicNsgRg": {
+              "type": "string"
+            },
+            "shutdownTime": {
+              "type": "string"
+            },
+            "timeZoneId": {
+              "type": "string"
+            },
+            "subnetName": {
+              "type": "string"
+            },
+            "imageName": {
+              "type": "string"
+            },
+            "imageVersion": {
+              "type": "string"
+            },
+            "roleAssignmentName": {
+              "type": "string"
+            },
+            "accessGroupId": {
+              "type": "string"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "name": "[parameters('roleAssignmentName')]",
+              "properties": {
+                "description": "Lab Access Group",
+                "principalId": "[parameters('accessGroupId')]",
+                "principalType": "Group",
+                "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+              }
+            },
+            {
+              "type": "Microsoft.Network/networkInterfaces",
+              "apiVersion": "2021-02-01",
+              "name": "[format('vm-nve-{0}-{1}_nic', parameters('org'), parameters('labName'))]",
+              "location": "[parameters('location')]",
+              "tags": {
+                "Lab": "[parameters('labName')]",
+                "Org": "[parameters('org')]"
+              },
+              "properties": {
+                "ipConfigurations": [
+                  {
+                    "name": "ipconfig1",
+                    "properties": {
+                      "privateIPAllocationMethod": "Dynamic",
+                      "subnet": {
+                        "id": "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('vnetRg')), 'Microsoft.Network/virtualNetworks/subnets', split(format('{0}/{1}', parameters('vnetName'), parameters('subnetName')), '/')[0], split(format('{0}/{1}', parameters('vnetName'), parameters('subnetName')), '/')[1])]"
+                      }
+                    }
+                  }
+                ],
+                "networkSecurityGroup": {
+                  "id": "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('nicNsgRg')), 'Microsoft.Network/networkSecurityGroups', parameters('nicNsgName'))]"
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2021-11-01",
+              "name": "[format('vm-nve-{0}-{1}', parameters('org'), parameters('labName'))]",
+              "location": "[parameters('location')]",
+              "tags": {
+                "Lab": "[parameters('labName')]",
+                "Org": "[parameters('org')]",
+                "Image": "[parameters('imageName')]",
+                "Version": "[parameters('imageVersion')]"
+              },
+              "properties": {
+                "hardwareProfile": {
+                  "vmSize": "[parameters('vmSize')]"
+                },
+                "licenseType": "Windows_Server",
+                "networkProfile": {
+                  "networkInterfaces": [
+                    {
+                      "id": "[resourceId('Microsoft.Network/networkInterfaces', format('vm-nve-{0}-{1}_nic', parameters('org'), parameters('labName')))]",
+                      "properties": {
+                        "primary": true,
+                        "deleteOption": "Delete"
+                      }
+                    }
+                  ]
+                },
+                "osProfile": {
+                  "adminPassword": "[parameters('adminPassword')]",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "allowExtensionOperations": true,
+                  "computerName": "NVE",
+                  "windowsConfiguration": {
+                    "enableAutomaticUpdates": false,
+                    "provisionVMAgent": true,
+                    "timeZone": "[parameters('timeZoneId')]"
+                  }
+                },
+                "priority": "Regular",
+                "storageProfile": {
+                  "imageReference": {
+                    "id": "[parameters('imageReferenceId')]"
+                  },
+                  "osDisk": {
+                    "createOption": "FromImage",
+                    "deleteOption": "Delete",
+                    "managedDisk": {
+                      "storageAccountType": "Premium_LRS"
+                    },
+                    "name": "[format('vm-nve-{0}-{1}_osdisk', parameters('org'), parameters('labName'))]",
+                    "osType": "Windows",
+                    "writeAcceleratorEnabled": false
+                  }
+                }
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', format('vm-nve-{0}-{1}_nic', parameters('org'), parameters('labName')))]"
+              ]
+            },
+            {
+              "type": "Microsoft.DevTestLab/schedules",
+              "apiVersion": "2018-09-15",
+              "name": "[format('shutdown-computevm-vm-nve-{0}-{1}', parameters('org'), parameters('labName'))]",
+              "location": "[parameters('location')]",
+              "tags": {
+                "Lab": "[parameters('labName')]",
+                "Org": "[parameters('org')]"
+              },
+              "properties": {
+                "dailyRecurrence": {
+                  "time": "[parameters('shutdownTime')]"
+                },
+                "status": "Enabled",
+                "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', format('vm-nve-{0}-{1}', parameters('org'), parameters('labName')))]",
+                "taskType": "ComputeVmShutdownTask",
+                "timeZoneId": "[parameters('timeZoneId')]"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Compute/virtualMachines', format('vm-nve-{0}-{1}', parameters('org'), parameters('labName')))]"
+              ]
+            }
+          ],
+          "outputs": {
+            "ipAddress": {
+              "type": "string",
+              "value": "[reference(resourceId('Microsoft.Network/networkInterfaces', format('vm-nve-{0}-{1}_nic', parameters('org'), parameters('labName'))), '2021-02-01').ipConfigurations[0].properties.privateIPAddress]"
+            },
+            "resourceId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.Compute/virtualMachines', format('vm-nve-{0}-{1}', parameters('org'), parameters('labName')))]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('nve-{0}-{1}-rg', parameters('org'), parameters('labName')))]"
+      ]
+    }
+  ],
+  "outputs": {
+    "ipAddress": {
+      "type": "string",
+      "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('nve-{0}-{1}-rg', parameters('org'), parameters('labName'))), 'Microsoft.Resources/deployments', format('{0}-{1}-{2}-vm-deployment', parameters('org'), parameters('labName'), parameters('loc'))), '2022-09-01').outputs.ipAddress.value]"
+    },
+    "resourceId": {
+      "type": "string",
+      "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('nve-{0}-{1}-rg', parameters('org'), parameters('labName'))), 'Microsoft.Resources/deployments', format('{0}-{1}-{2}-vm-deployment', parameters('org'), parameters('labName'), parameters('loc'))), '2022-09-01').outputs.resourceId.value]"
+    }
+  }
+}
