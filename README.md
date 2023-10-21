@@ -1,5 +1,42 @@
 # azure-nested-labs
-Azure hosted, self-administered Hyper-V nested virtualisation labs managed by Automation Account runbooks.
+An Azure Automation Account Runbook system to manage a Nested Virtualisation Environment (NVE) labs.
+
+## Intro
+Before diving into it, let me explain what this is. 
+
+I've built an Azure Automation Account Runbook system that allows users to provision, modify, recapture and share their own labs. Below are some of the key features of this system:
+1. Self-service lab provisioning
+2. Self-service lab modification
+3. Self-service lab image capture
+4. Self-service password resets
+5. Self-service lab start/shutdown
+6. Time-based auto shutdown of VMs
+7. Self-service lab time extensions
+8. Budget driven auto shutdown of VMs
+9. Budget driven lab disablement
+
+## Architecture
+The system is built around a single Azure Automation Account. The Automation Account has a number of Runbooks that are used to manage the labs. The Runbooks include:
+
+- a--NewLab
+- b--Start_Lab
+- c--Extend_Lab_Time
+- d--Stop_Lab
+- e--Add_Lab_DataDisks
+- f--Remove_Lab_DataDisks
+- g--Set_Lab_VmSize
+- h--Remove_Lab
+- i--Capture_New_Image
+- j--Update_Source_Image
+- k--Remove_Image
+- l--Reset_Lab_Password
+- m--List_Available_resources
+
+The required supporting infrastructure includes:
+- Azure Automation Account
+- Azure Blob Storage Account
+- Azure Compute Gallery
+- Azure Virtual Network
 
 
 ## Quickstart

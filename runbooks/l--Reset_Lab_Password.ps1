@@ -29,8 +29,8 @@ $ErrorActionPreference = 'Stop'
 #region EnvironmentVariables
 $OrgCode     = 'dev'
 $Username    = 'labadmin'
-$BastionName = 'bas-nve-prod-aue-001'
-$BastionRg   = 'rg-net-prod-aue-001'
+$BastionName = 'bas-nve-prod-ae-001'
+$BastionRg   = 'rg-net-prod-ae-001'
 $BudgetName  = 'budget-monthly-labs'
 #endregion EnvironmentVariables
 

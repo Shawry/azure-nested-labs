@@ -27,8 +27,8 @@ $ErrorActionPreference = 'Stop'
 $OrgCode        = 'dev'
 $AllocatedHours = 4
 $BudgetName         = 'budget-monthly-labs'
-$BastionName        = 'bas-nve-labs-aue-001'
-$BastionRg          = 'rg-net-labs-aue-001'
+$BastionName        = 'bas-nve-labs-ae-001'
+$BastionRg          = 'rg-net-labs-ae-001'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"

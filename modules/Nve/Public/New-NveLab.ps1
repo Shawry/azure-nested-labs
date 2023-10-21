@@ -133,19 +133,19 @@
       VmSize              = 'Standard_D8s_v5'
       Location            = 'Australia East'
       ImageName           = 'nve-baseline-standard'
-      GalleryName         = 'Image_Gallery'
-      GalleryRgName       = 'rg-nve-prod-aue-001'
-      SubnetName          = 'snet-nve-prod-aue-001'
-      VnetName            = 'vnet-nve-prod-aue-001'
-      VnetRg              = 'rg-net-prod-aue-001'
-      NicNsgName          = 'nsg-nvenicprod-001'
-      NicNsgRg            = 'rg-net-prod-aue-001'
+      GalleryName         = '<Image_Gallery_Name>'
+      GalleryRgName       = 'rg-nve-labs-ae-001'
+      SubnetName          = 'snet-nve-labs-ae-001'
+      VnetName            = 'vnet-nve-labs-ae-001'
+      VnetRg              = 'rg-net-labs-ae-001'
+      NicNsgName          = 'nsg-nveniclabs-001'
+      NicNsgRg            = 'rg-net-labs-ae-001'
       StorageContext      = $StorageContext
       TemplatesContainer  = 'templates'
       AllocatedHours      = 4
       BudgetName          = 'budget-monthly-labs'
-      BastionName         = 'bas-nve-prod-aue-001'
-      BastionRg           = 'rg-net-prod-aue-001'
+      BastionName         = 'bas-nve-labs-ae-001'
+      BastionRg           = 'rg-net-labs-ae-001'
       AccessGroupId       = '<GUID>'
   }
   New-NveLab @Params
@@ -356,9 +356,15 @@ function New-NveLab {
         throw [NveVmSizeNotSupportedException]::New($VmSize, $SupportedSizes)
       }
 
-      $VmSizes = Get-AzVmSize -Location $Location
+      # Validate $Location
+      $ValidRegion = Get-AzLocation | Where-Object { $_.DisplayName -eq $Location -or $_.Location -eq $Location}
+      if(-Not $ValidRegion) { 
+        throw "Provided Location:'$Location' is not a valid Azure Region. Seek admin help for this error"
+      }
+
+      $VmSizes = Get-AzVmSize -Location $ValidRegion.Location
       if($VmSize -notin $VmSizes.Name) { 
-        throw [NveVmSizeNotAvailableInRegionException]::New($VmSize, $Location, $VmSizes)
+        throw [NveVmSizeNotAvailableInRegionException]::New($VmSize, $ValidRegion.Location, $VmSizes)
       }
 
       # Can the VM Size support the number of DataDisks the Image has
@@ -370,14 +376,7 @@ function New-NveLab {
       $VmSizeInfo = $SupportedSizes | Where-Object Sku -eq $VmSize
 
       if($DiskCount -gt $VmSizeInfo.MaxDataDisks) {
-        throw [NveImageDisksExceedsMaxException]::New($DiskCount, $VmSizeInfo.Sku, $Location)
-      }
-        
-      # Validate $Location
-      $AusRegions = Get-AzLocation | Where-Object DisplayName -match '^Australia\s\w' | Select-Object DisplayName, Location
-      $ValidRegion = $AusRegions | Where-Object { $_.DisplayName -eq $Location -or $_.Location -eq $Location}
-      if(-Not $ValidRegion) { 
-        throw "Provided Location:'$Location' is not a valid Australian Azure Region. Seek admin help for this error"
+        throw [NveImageDisksExceedsMaxException]::New($DiskCount, $VmSizeInfo.Sku, $ValidRegion.Location)
       }
       
       # Validate $VnetName, $VnetRg
@@ -418,10 +417,8 @@ $hr
 
 "@
     try {
-
-      # Format the three letter location code from the Location DisplayName
-      $LocArr = $ValidRegion.DisplayName -split '\s'
-      $LocationCode = ("{0}{1}{2}" -f $LocArr[0].substring(0,2), $LocArr[1].Substring(0,1), ($LocArr[2] ? $LocArr[2].Substring(0,1) : '')).ToLower()
+      # Find GeoCode for Location
+      $LocationCode = [GeoCodes]::$ValidRegion.Location
 
       # Pick the Image version to use
       $ImageReferenceId ="$($Gallery.Id)/images/$ImageName"
@@ -431,7 +428,8 @@ $hr
         GalleryName = $GalleryName
         GalleryImageDefinitionName = $ImageName
       }
-      $LatestVersion = Get-AzGalleryImageVersion @Params | Where-Object { $PSItem.PublishingProfile.ExcludeFromLatest -eq $false } | Sort-Object Name -Descending | Select-Object -First 1 -ExpandProperty Name
+      $LatestVersion = Get-AzGalleryImageVersion @Params | Where-Object { $PSItem.PublishingProfile.ExcludeFromLatest -eq $false } `
+        | Sort-Object Name -Descending | Select-Object -First 1 -ExpandProperty Name
       
       # Generate an admin password for the VM
       $Password = Get-NveRandomPassword
@@ -448,7 +446,7 @@ $hr
         $Parameters = @{
           labName           = $LabName
           vmSize            = $VmSize
-          location          = $Location
+          location          = $ValidRegion.Location
           loc               = $LocationCode
           org               = $OrgCode
           adminPassword     = $Password
@@ -468,7 +466,7 @@ $hr
 
         $Params = @{
           Name = ("nve-{0}-{1}-{2}-deployment" -f $OrgCode, $LabName, $LocationCode)
-          Location = $Location
+          Location = $ValidRegion.Location
           TemplateFile = "{0}\nve-template.json" -f $env:TEMP
           TemplateParameterObject = $Parameters
         }

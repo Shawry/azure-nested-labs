@@ -139,16 +139,16 @@ $AllocatedHours     = 4  ## Optionally, change this to the number of hours you w
 
 $BudgetName         = 'budget-monthly-labs'
 $Location           = 'Australia East'
-$VnetName           = 'vnet-nve-labs-aue-001'
-$VnetRg             = 'rg-net-labs-aue-001'
-$SubnetName         = 'snet-nve-labs-aue-001'
+$VnetName           = 'vnet-nve-labs-ae-001'
+$VnetRg             = 'rg-net-labs-ae-001'
+$SubnetName         = 'snet-nve-labs-ae-001'
 $NicNsgName         = 'nsg-nveniclabs-001'
-$NicNsgRg           = 'rg-net-labs-aue-001'
+$NicNsgRg           = 'rg-net-labs-ae-001'
 $TemplatesContainer = 'templates'
-$GalleryRgName      = 'rg-nve-labs-aue-001'
+$GalleryRgName      = 'rg-nve-labs-ae-001'
 $Username           = 'labadmin'
-$BastionName        = 'bas-nve-labs-aue-001'
-$BastionRg          = 'rg-net-labs-aue-001'
+$BastionName        = 'bas-nve-labs-ae-001'
+$BastionRg          = 'rg-net-labs-ae-001'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"

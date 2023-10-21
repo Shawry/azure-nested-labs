@@ -25,7 +25,7 @@ $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
 $OrgCode        = 'dev'
-$GalleryRgName      = 'rg-nve-prod-aue-001'
+$GalleryRgName      = 'rg-nve-prod-ae-001'
 $GalleryName        = '<Image_Gallery_Name>'
 #endregion EnvironmentVariables
 

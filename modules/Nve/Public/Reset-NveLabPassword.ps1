@@ -22,8 +22,8 @@
     OrgCode     = 'dev'
     LabName     = 'my_lab'
     Username    = 'labadmin'
-    BastionName = 'bas-nve-prod-aue-001'
-    BastionRg   = 'rg-net-prod-aue-001'
+    BastionName = 'bas-nve-labs-au-001'
+    BastionRg   = 'rg-net-labs-au-001'
   }
   Reset-NveLabPassword @Params
 

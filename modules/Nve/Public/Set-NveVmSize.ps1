@@ -18,7 +18,7 @@
 .EXAMPLE
   Set-NveVmSize -LabName 'my_lab' -OrgCode 'dev' -VmSize 'Standard_E32s_v5'
 
-  The 'my_lab' VM under the 'nve' organisation will have its VM Size changed to the 'Standard_E32s_v5' SKU.
+  The 'my_lab' VM under the 'dev' organisation will have its VM Size changed to the 'Standard_E32s_v5' SKU.
 #>
 
 

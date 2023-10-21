@@ -25,7 +25,7 @@
     OrgCode       = 'dev'
     BudgetName    = 'budget-monthly-labs'
     GalleryName   = '<Image_Gallery_Name>'
-    GalleryRgName = 'rg-nve-prod-aue-001'
+    GalleryRgName = 'rg-nve-labs-au-001'
   }
   Update-NveImage @Params
 
