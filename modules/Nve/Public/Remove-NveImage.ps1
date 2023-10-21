@@ -19,16 +19,16 @@
 
 .EXAMPLE
   $Params = @{
-    Publisher     = 'deployables'
-    Offer         = 'fleet'
-    SKU           = 'secret_server'
-    OrgCode       = 'nve'
+    Publisher     = 'org_name'
+    Offer         = 'division'
+    SKU           = 'lab_name'
+    OrgCode       = 'dev'
     GalleryName   = $Gallery.Name
     GalleryRgName = $Gallery.ResourceGroupName
   }
   Remove-NveImage @Params
 
-  This will remove the deployables-fleet-secret_server Image Defintion and all associated Image Versions.
+  This will remove the org_name-division-lab_name Image Defintion and all associated Image Versions.
 #>
 
 function Remove-NveImage {

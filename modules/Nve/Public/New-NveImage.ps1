@@ -20,17 +20,17 @@
 .EXAMPLE
   $Params = @{
     LabName     = 'my_lab'
-    OrgCode     = 'nve'
-    Publisher   = 'deployables'
-    Offer       = 'fleet'
-    SKU         = 'secret_server'
+    OrgCode     = 'dev'
+    Publisher   = 'org_name'
+    Offer       = 'division'
+    SKU         = 'lab_name'
     BudgetName  = $Budget.Name
     GalleryName = $Gallery.Name
     GalleryRgName = $Gallery.ResourceGroupName
   }
   New-NveImage @Params
 
-  This call will sysprep, generalise, and capture the 'my_lab' lab VM and create a new 'deployables-fleet-secret_server' 
+  This call will sysprep, generalise, and capture the 'my_lab' lab VM and create a new 'org_name-division-lab_name' 
   Image Definition, providing the budget limit has not been exceeded. The lab will be removed after the capture is taken.
 #>
 

@@ -22,9 +22,9 @@
 .EXAMPLE
   $Params = @{
     LabName       = 'my_lab'
-    OrgCode       = 'nve'
-    BudgetName    = 'budget-monthly-non-prod'
-    GalleryName   = 'Image_Gallery'
+    OrgCode       = 'dev'
+    BudgetName    = 'budget-monthly-labs'
+    GalleryName   = '<Image_Gallery_Name>'
     GalleryRgName = 'rg-nve-prod-aue-001'
   }
   Update-NveImage @Params

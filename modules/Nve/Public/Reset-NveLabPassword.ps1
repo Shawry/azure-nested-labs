@@ -19,7 +19,7 @@
 
 .EXAMPLE
   $Params = @{
-    OrgCode     = 'nve'
+    OrgCode     = 'dev'
     LabName     = 'my_lab'
     Username    = 'labadmin'
     BastionName = 'bas-nve-prod-aue-001'
@@ -27,7 +27,7 @@
   }
   Reset-NveLabPassword @Params
 
-  The 'labadmin' account will be reset on the 'my_lab' lab under the 'nve' organisation
+  The 'labadmin' account will be reset on the 'my_lab' lab under the 'dev' organisation
 #>
 
 

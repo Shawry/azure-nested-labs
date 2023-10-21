@@ -17,9 +17,9 @@
 
 .EXAMPLE
 
-  Remove-NveLab -LabName 'my_lab' -OrgCode 'nve'
+  Remove-NveLab -LabName 'my_lab' -OrgCode 'dev'
 
-  This will remove the 'my_lab' lab that belongs to the 'nve' organisation.
+  This will remove the 'my_lab' lab that belongs to the 'dev' organisation.
 #>
 function Remove-NveLab {
 

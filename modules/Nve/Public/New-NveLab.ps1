@@ -124,10 +124,10 @@
 
 .EXAMPLE
   
-  $StorageContext = New-AzStorageContext -StorageAccountName 'stnveproddata001' -UseConnectedAccount
+  $StorageContext = New-AzStorageContext -StorageAccountName 'stxxxxxx001' -UseConnectedAccount
 
   $Params = @{
-      OrgCode             = 'nve'
+      OrgCode             = 'dev'
       LabName             = 'my_lab'     
       Username            = 'labadmin'
       VmSize              = 'Standard_D8s_v5'
@@ -143,10 +143,10 @@
       StorageContext      = $StorageContext
       TemplatesContainer  = 'templates'
       AllocatedHours      = 4
-      BudgetName          = 'budget-monthly-non-prod'
+      BudgetName          = 'budget-monthly-labs'
       BastionName         = 'bas-nve-prod-aue-001'
       BastionRg           = 'rg-net-prod-aue-001'
-      AccessGroupId       = 'd52bac22-c43d-468f-9b74-07ed2d3f8f48'
+      AccessGroupId       = '<GUID>'
   }
   New-NveLab @Params
   

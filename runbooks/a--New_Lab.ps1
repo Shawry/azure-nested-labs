@@ -82,9 +82,9 @@ How to use the Labs:
 
     Give the new Image Definition a descriptive name. 
     eg:
-      Publisher:  deployables
-      Offer:      fie
-      Sku:        secret_server
+      Publisher:  org_name
+      Offer:      division
+      Sku:        lab_name
 
   Step 6. 
     You can now provision from your Image Definition via the SOURCEIMAGE parameter of the 
@@ -93,7 +93,7 @@ How to use the Labs:
     Using the example from Step 5 provide the following argument to the SOURCEIMAGE
     parameter for the New_Lab runbook:
 
-    deployables-fie-secret_server
+    org_name-division-lab_name
 
   Step 7.
     If you want to update the Image Definition, use the Update_Source_Image runbook.
@@ -131,23 +131,24 @@ param (
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
+$AccessGroupId      = '<GUID>'  ## Change this to your user group ID
+$StorageAccountName = 'stxxxxxx001'  ## Change this to your storage account name
+$GalleryName        = '<Image_Gallery_Name>'  ## Change this to your image gallery name
+$OrgCode            = 'dev'  ## Optionally, change this to your org code
+$AllocatedHours     = 4  ## Optionally, change this to the number of hours you want to allocate to the lab
+
+$BudgetName         = 'budget-monthly-labs'
 $Location           = 'Australia East'
-$VnetName           = 'vnet-nve-prod-aue-001'
-$VnetRg             = 'rg-net-prod-aue-001'
-$SubnetName         = 'snet-nve-prod-aue-001'
-$NicNsgName         = 'nsg-nvenicprod-001'
-$NicNsgRg           = 'rg-net-prod-aue-001'
-$StorageAccountName = 'stnvedevdata001'
+$VnetName           = 'vnet-nve-labs-aue-001'
+$VnetRg             = 'rg-net-labs-aue-001'
+$SubnetName         = 'snet-nve-labs-aue-001'
+$NicNsgName         = 'nsg-nveniclabs-001'
+$NicNsgRg           = 'rg-net-labs-aue-001'
 $TemplatesContainer = 'templates'
-$GalleryRgName      = 'rg-nve-prod-aue-001'
-$GalleryName        = 'Image_Gallery'
+$GalleryRgName      = 'rg-nve-labs-aue-001'
 $Username           = 'labadmin'
-$OrgCode            = 'nve'
-$AllocatedHours     = 4
-$BudgetName         = 'budget-monthly-non-prod'
-$BastionName        = 'bas-nve-prod-aue-001'
-$BastionRg          = 'rg-net-prod-aue-001'
-$AccessGroupId      = 'd52bac22-c43d-468f-9b74-07ed2d3f8f48'
+$BastionName        = 'bas-nve-labs-aue-001'
+$BastionRg          = 'rg-net-labs-aue-001'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"

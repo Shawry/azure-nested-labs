@@ -24,11 +24,11 @@ Param (
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
-$OrgCode        = 'nve'
+$OrgCode        = 'dev'
 $AllocatedHours = 4
-$BudgetName         = 'budget-monthly-non-prod'
-$BastionName        = 'bas-nve-prod-aue-001'
-$BastionRg          = 'rg-net-prod-aue-001'
+$BudgetName         = 'budget-monthly-labs'
+$BastionName        = 'bas-nve-labs-aue-001'
+$BastionRg          = 'rg-net-labs-aue-001'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"

@@ -13,7 +13,7 @@
   Module repo located at: TBA
 
 .EXAMPLE 
-  Stop-NveLab -LabName 'my_lab' -OrgCode 'nve'
+  Stop-NveLab -LabName 'my_lab' -OrgCode 'dev'
 #>
 
 function Stop-NveLab {

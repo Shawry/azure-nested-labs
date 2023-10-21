@@ -18,7 +18,7 @@
   Module repo located at: TBA
 
 .EXAMPLE
-  Add-NveDataDisk -LabName 'my_lab' -OrgCode 'nve' -Quantity 3 -DiskSize 128
+  Add-NveDataDisk -LabName 'my_lab' -OrgCode 'dev' -Quantity 3 -DiskSize 128
 
   This will find the lab named 'my_lab' under the organisation 'nve' then create and attach 3 x 128GB data disks to it.
 #>

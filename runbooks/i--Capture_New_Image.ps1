@@ -53,10 +53,10 @@ Param(
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
-$OrgCode        = 'nve'
+$OrgCode        = 'dev'
 $GalleryRgName  = 'rg-nve-prod-aue-001'
-$GalleryName    = 'Image_Gallery'
-$BudgetName     = 'budget-monthly-non-prod'
+$GalleryName    = '<Image_Gallery_Name>'
+$BudgetName     = 'budget-monthly-labs'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"

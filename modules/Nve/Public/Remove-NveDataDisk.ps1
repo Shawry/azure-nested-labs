@@ -15,7 +15,7 @@
   Module repo located at: TBA
 
 .EXAMPLE
-  Remove-NveDataDisk -LabName 'my_lab' -OrgCode 'nve' -LUNs 1,2,5,
+  Remove-NveDataDisk -LabName 'my_lab' -OrgCode 'dev' -LUNs 1,2,5,
 
   The disks attached to LUNs 1, 2 and 5 will be detached from the VM and deleted.
 #>

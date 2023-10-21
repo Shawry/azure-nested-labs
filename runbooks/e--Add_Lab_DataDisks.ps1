@@ -56,9 +56,9 @@ Param(
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
-$OrgCode  = 'nve'
+$OrgCode  = 'dev'
 $DiskSize = 128 # Must be one of: 4,8,16,32,64,128,256,512,1024
-$BudgetName = 'budget-monthly-non-prod'
+$BudgetName = 'budget-monthly-labs'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"

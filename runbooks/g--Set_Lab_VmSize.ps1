@@ -57,8 +57,8 @@ Param(
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
-$OrgCode    = 'nve'
-$BudgetName = 'budget-monthly-non-prod'
+$OrgCode    = 'dev'
+$BudgetName = 'budget-monthly-labs'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"

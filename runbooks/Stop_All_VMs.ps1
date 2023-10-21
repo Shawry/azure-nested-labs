@@ -85,26 +85,3 @@ catch {
     Write-Output ("`r$hr`rScript failed at: '{0}'" -f (Get-Date -f 'o'))
     Write-Error $PSItem
 }
-
-# {
-#   "schemaId": "AIP Budget Notification",
-#   "data": {
-#       "SubscriptionName": "",
-#       "SubscriptionId": "",
-#       "EnrollmentNumber": "",
-#       "DepartmentName": "",
-#       "AccountName": "",
-#       "BillingAccountId": "",
-#       "BillingProfileId": "",
-#       "InvoiceSectionId": "",
-#       "ResourceGroup": "",
-#       "SpendingAmount": "",
-#       "BudgetStartDate": "",
-#       "Budget": "",
-#       "Unit": "",
-#       "BudgetCreator": "",
-#       "BudgetName": "",
-#       "BudgetType": "",
-#       "NotificationThresholdAmount": ""
-#   }
-# }

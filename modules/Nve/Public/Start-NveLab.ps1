@@ -15,7 +15,7 @@
   Module repo located at: TBA
 
 .EXAMPLE
-  Start-NveLab -LabName 'my_lab' -OrgCode 'nve' -AllocatedHours 4
+  Start-NveLab -LabName 'my_lab' -OrgCode 'dev' -AllocatedHours 4
 #>
 
 function Start-NveLab {

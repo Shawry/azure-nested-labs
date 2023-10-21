@@ -14,7 +14,7 @@
   Module repo located at: TBA
 
 .EXAMPLE
-  Get-NveResources -OrgCode 'nve' -GalleryRgName $Gallery.ResourceGroupName -GalleryName $Gallery.Name
+  Get-NveResources -OrgCode 'dev' -GalleryRgName $Gallery.ResourceGroupName -GalleryName $Gallery.Name
 
   All VMs under the nve organisation code will be listed. All images from within the provided gallery will be listed.
 #>

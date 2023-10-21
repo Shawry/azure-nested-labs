@@ -20,7 +20,7 @@
   Module repo located at: TBA
 
 .EXAMPLE
-  Grant-NveLabTime -LabName 'my_lab' -OrgCode 'nve' -AllocatedHours 4 -BudgetName $BudgetName
+  Grant-NveLabTime -LabName 'my_lab' -OrgCode 'dev' -AllocatedHours 4 -BudgetName $BudgetName
 
   The 'my_lab' VM auto shutdown schedule will be set to shutdown 4 hrs from now, but only providing the
   budget has not exceeded its limit.

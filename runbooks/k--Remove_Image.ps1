@@ -45,9 +45,9 @@ Param(
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
-$OrgCode        = 'nve'
+$OrgCode        = 'dev'
 $GalleryRgName  = 'rg-nve-prod-aue-001'
-$GalleryName    = 'Image_Gallery'
+$GalleryName    = '<Image_Gallery_Name>'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"

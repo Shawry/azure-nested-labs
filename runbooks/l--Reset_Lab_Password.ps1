@@ -27,11 +27,11 @@ Param(
 $ErrorActionPreference = 'Stop'
 
 #region EnvironmentVariables
-$OrgCode     = 'nve'
+$OrgCode     = 'dev'
 $Username    = 'labadmin'
 $BastionName = 'bas-nve-prod-aue-001'
 $BastionRg   = 'rg-net-prod-aue-001'
-$BudgetName  = 'budget-monthly-non-prod'
+$BudgetName  = 'budget-monthly-labs'
 #endregion EnvironmentVariables
 
 $hr = "_________________________________________________________________________________________________________"
